@@ -1,5 +1,6 @@
 import React from "react";
 import PostCard from "../../entities/post/ui/PostCard";
+import './PostList.css'
 
 const PostList = ( { posts } ) => {
     return (
