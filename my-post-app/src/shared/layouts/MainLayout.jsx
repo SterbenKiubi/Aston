@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../../widgets/LayoutHeader/Header";
 import Footer from "../../widgets/LayoutFooter/Footer";
+import './MainLayout.css'
 
 const MainLayout = ( { children } ) => {
     return (
