@@ -1,0 +1,10 @@
+.post-list {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.post-list-container {
+    display: flex;
+    gap: 10px;
+}
