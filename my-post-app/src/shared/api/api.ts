@@ -1,4 +1,6 @@
-export const mockPosts = [
+import { Post } from "../../entities/post/model/types";
+
+export const mockPosts: Post[] = [
     {
         userId: 1,
         id: 1,

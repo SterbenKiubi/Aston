@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import MainLayout from './shared/layouts/MainLayout';
 import PostList from './widgets/PostList/PostList';
+import { Post } from './entities/post/model/types';
 import { mockPosts } from './shared/api/api';
 
 function App() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
 
   setTimeout(() => {

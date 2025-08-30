@@ -1,7 +1,12 @@
 import React from "react";
+import { Post } from "../model/types";
 import './PostCard.css';
 
-const PostCard = ( { post } ) => {
+interface PostCardProps {
+  post: Post;
+}
+
+const PostCard: React.FC<PostCardProps> = ( { post } ) => {
     return (
         <div className="card">
             <h3 className="title">title: {post.title}</h3>
