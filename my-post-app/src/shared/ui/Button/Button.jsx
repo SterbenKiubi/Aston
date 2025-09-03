@@ -1,9 +1,10 @@
 import React from 'react';
+import './Button.css'
 
-const Button = () => {
+const Button = ({ showModal }) => {
   return (
-    <button>
-      Btn
+    <button className='button' onClick={showModal}>
+      Показать модальное окно
     </button>
   );
 };

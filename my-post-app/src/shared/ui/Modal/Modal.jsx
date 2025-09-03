@@ -1,0 +1,17 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const Modal = ({ isOpen, onClose }) => {
+    return ReactDOM.createPortal(
+    <dialog open={isOpen}>
+      <div>
+            <h3>О проекте</h3>
+            <p>Приложение для просмотра постов</p>
+            <button onClick={onClose}>Закрыть</button>
+        </div>
+    </dialog>,
+    document.body
+  );
+};
+
+export default Modal;
