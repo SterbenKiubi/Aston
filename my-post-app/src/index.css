@@ -66,3 +66,52 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* light */
+.light-theme {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --border-color: #dddddd;
+  background: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+/* for light */
+.light-theme .card {
+  border: 1px solid black;
+}
+
+/* dark */
+.dark-theme {
+  --bg-color: #242424;
+  --text-color: #ffffff;
+  --border-color: #444444;
+  background: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+/* for dark */
+.dark-theme .card {
+  background: #2d2d2d;
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.dark-theme .title {
+  color: var(--text-color);
+}
+
+.dark-theme .text {
+  color: #cccccc;
+}
+
+.dark-theme .post-list h2 {
+  color: var(--text-color);
+}
+
+.dark-theme .footer {
+  background: #2d2d2d;
+  border-top: 1px solid var(--border-color);
+}
