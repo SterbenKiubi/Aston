@@ -6,7 +6,7 @@ interface PostListProps {
   posts: Post[];
 }
 
-const PostList = (props: PostListProps): JSX.Element => {
+const PostList: FC<PostListProps> = (props): JSX.Element => {
     const { posts } = props;
     
     return (
