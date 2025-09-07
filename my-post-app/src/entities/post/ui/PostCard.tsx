@@ -1,6 +1,6 @@
 import React from "react";
 import { Post } from "../model/types";
-import './PostCard.css';
+import styles from './PostCard.module.css';
 
 interface PostCardProps {
   post: Post;
@@ -8,7 +8,7 @@ interface PostCardProps {
 
 const PostCard: React.FC<PostCardProps> = ( { post } ) => {
     return (
-        <div className="card">
+        <div className={styles.card}>
             <h3 className="title">title: {post.title}</h3>
             <p className="userId">userId: {post.userId}</p>
             <p className="id">id: {post.id}</p>
