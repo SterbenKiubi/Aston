@@ -1,4 +1,3 @@
-import React from "react";
 import PostCard from "../../entities/post/ui/PostCard";
 import { Post } from "../../entities/post/model/types";
 import './PostList.css'
@@ -7,7 +6,9 @@ interface PostListProps {
   posts: Post[];
 }
 
-const PostList: React.FC<PostListProps> = ( { posts } ) => {
+const PostList = (props: PostListProps): JSX.Element => {
+    const { posts } = props;
+    
     return (
         <div className="post-list">
             <h2>Все посты</h2>
