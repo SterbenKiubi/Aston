@@ -6,7 +6,7 @@ const ThemeSwitcher = () => {
 
     return (
         <button className="theme-switcher" onClick={toggleTheme}>
-            {isDark ? 'Темная тема' : 'Светлая тема'}
+            {isDark ? 'Светлая тема' : 'Темная тема'}
         </button>
     )
 }

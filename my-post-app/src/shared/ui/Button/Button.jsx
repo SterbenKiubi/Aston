@@ -1,9 +1,9 @@
 import React from 'react';
-import './Button.css'
+import styles from './Button.module.css';
 
 const Button = ({ showModal }) => {
   return (
-    <button className='button' onClick={showModal}>
+    <button className={styles.button} onClick={showModal}>
       Показать модальное окно
     </button>
   );
