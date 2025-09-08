@@ -1,12 +1,13 @@
 import { PostCard } from "../../entities/post/ui/PostCard";
 import { Post } from "../../entities/post/model/types";
+import { FC } from "react";
 import './PostList.css'
 
 interface PostListProps {
   posts: Post[];
 }
 
-export const PostList: FC<PostListProps> = (props): JSX.Element => {
+export const PostList: FC<PostListProps> = (props) => {
     const { posts } = props;
     
     return (
