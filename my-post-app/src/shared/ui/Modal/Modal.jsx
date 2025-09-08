@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styles from './Modal.module.css';
 
-const Modal = ({ isOpen, onClose }) => {
+export const Modal = ({ isOpen, onClose }) => {
     return ReactDOM.createPortal(
     <dialog className={styles.modal} open={isOpen}>
       <div>
@@ -14,5 +14,3 @@ const Modal = ({ isOpen, onClose }) => {
     document.body
   );
 };
-
-export default Modal;

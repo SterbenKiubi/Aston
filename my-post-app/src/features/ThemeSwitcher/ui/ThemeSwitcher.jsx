@@ -1,7 +1,7 @@
 import React from "react";
 import { useTheme } from "../../../shared/lib/theme/ThemeContext";
 
-const ThemeSwitcher = () => {
+export const ThemeSwitcher = () => {
     const { isDark, toggleTheme } = useTheme();
 
     return (
@@ -9,6 +9,4 @@ const ThemeSwitcher = () => {
             {isDark ? 'Светлая тема' : 'Темная тема'}
         </button>
     )
-}
-
-export default ThemeSwitcher;
+};

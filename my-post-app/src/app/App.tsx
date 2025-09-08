@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import MainLayout from '../shared/layouts/MainLayout';
-import PostList from '../widgets/PostList/PostList';
+import { MainLayout } from '../shared/layouts/MainLayout';
+import { PostList } from '../widgets/PostList/PostList';
 import { Post } from '../entities/post/model/types';
 import { mockPosts } from '../shared/api/api';
 import { ThemeProvider } from '../shared/lib/theme/ThemeContext';
@@ -29,4 +29,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

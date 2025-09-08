@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
-import Button from '../../shared/ui/Button/Button';
-import Modal from '../../shared/ui/Modal/Modal';
-import ThemeSwitcher from '../../features/ThemeSwitcher/ui/ThemeSwitcher';
-import styles from './Header.module.css'
-import { log } from 'console';
+import { Button } from '../../shared/ui/Button/Button';
+import { Modal } from '../../shared/ui/Modal/Modal';
+import { ThemeSwitcher } from '../../features/ThemeSwitcher/ui/ThemeSwitcher';
+import styles from './Header.module.css';
 
-const Header: React.FC = () => {
+export const Header: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     function openModal() {
         setIsModalOpen(true);
-        console.log(!isModalOpen);
     };
 
     function closeModal() {
         setIsModalOpen(false);
-        console.log(!isModalOpen);
     };
 
     return (
@@ -29,5 +26,3 @@ const Header: React.FC = () => {
         </header>
     );
 };
-
-export default Header;

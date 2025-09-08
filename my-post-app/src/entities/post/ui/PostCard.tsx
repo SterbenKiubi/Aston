@@ -6,7 +6,7 @@ interface PostCardProps {
   post: Post;
 }
 
-const PostCard: React.FC<PostCardProps> = ( { post } ) => {
+export const PostCard: React.FC<PostCardProps> = ( { post } ) => {
     return (
         <div className={styles.card}>
             <h3 className="title">title: {post.title}</h3>
@@ -16,5 +16,3 @@ const PostCard: React.FC<PostCardProps> = ( { post } ) => {
         </div>
     )
 };
-
-export default PostCard;

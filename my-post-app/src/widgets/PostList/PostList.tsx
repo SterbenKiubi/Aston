@@ -1,4 +1,4 @@
-import PostCard from "../../entities/post/ui/PostCard";
+import { PostCard } from "../../entities/post/ui/PostCard";
 import { Post } from "../../entities/post/model/types";
 import './PostList.css'
 
@@ -6,7 +6,7 @@ interface PostListProps {
   posts: Post[];
 }
 
-const PostList: FC<PostListProps> = (props): JSX.Element => {
+export const PostList: FC<PostListProps> = (props): JSX.Element => {
     const { posts } = props;
     
     return (
@@ -23,5 +23,3 @@ const PostList: FC<PostListProps> = (props): JSX.Element => {
         </div>
     );
 };
-
-export default PostList;
