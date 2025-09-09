@@ -1,7 +1,8 @@
 import { PostCard } from "../../entities/post/ui/PostCard";
 import { Post } from "../../entities/post/model/types";
 import { FC } from "react";
-import './PostList.css'
+import { withLoading } from "../../shared/lib/hoc/withLoading";
+import './PostList.css';
 
 interface PostListProps {
   posts: Post[];
@@ -24,3 +25,5 @@ export const PostList: FC<PostListProps> = (props) => {
         </div>
     );
 };
+
+export default withLoading(PostList);
