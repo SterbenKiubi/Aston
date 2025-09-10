@@ -1,0 +1,17 @@
+.lightTheme {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --border-color: #dddddd;
+  background: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+.darkTheme {
+  --bg-color: #242424;
+  --text-color: #ffffff;
+  --border-color: #444444;
+  background: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}

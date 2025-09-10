@@ -1,13 +1,13 @@
 import React from "react";
-import Header from "../../widgets/LayoutHeader/Header";
-import Footer from "../../widgets/LayoutFooter/Footer";
-import './MainLayout.css'
+import { Header } from "../../widgets/LayoutHeader/Header";
+import { Footer } from "../../widgets/LayoutFooter/Footer";
+import './MainLayout.css';
 
 interface MainLayoutProps {
   children: React.ReactNode;
-}
+};
 
-const MainLayout: React.FC<MainLayoutProps> = ( { children } ) => {
+export const MainLayout: React.FC<MainLayoutProps> = ( { children } ) => {
     return (
         <div className="layout">
             <Header />
@@ -17,6 +17,4 @@ const MainLayout: React.FC<MainLayoutProps> = ( { children } ) => {
             <Footer />
         </div>
     )
-}
-
-export default MainLayout;
+};
