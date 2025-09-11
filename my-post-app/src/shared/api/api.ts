@@ -20,39 +20,39 @@ export const mockPosts: Post[] = [
     {
         userId: 1,
         id: 1,
-        title: 'title1',
+        title: 'короткий',
         body: 'body text 1'
     },
     {
         userId: 1,
         id: 2,
-        title: 'title2',
+        title: 'пост со средним заголовком',
         body: 'body text 2'
     },
     {
         userId: 2,
         id: 3,
-        title: 'title3',
+        title: 'заголовок обычной длинны',
         body: 'body text 3'
     },
     {
         userId: 2,
         id: 4,
-        title: 'title4',
+        title: 'средний',
         body: 'body text 4'
     },
     {
         userId: 3,
         id: 5,
-        title: 'title5',
+        title: 'заголовок обычной длинны',
         body: 'body text 5'
     },
     {
         userId: 3,
         id: 6,
-        title: 'title6',
+        title: 'очень длинный заголовок поста который точно пройдет любой фильтр',
         body: 'body text 5'
-    },
+    }
 ];
 
 export const mockComments: CommentsByPostId = {
