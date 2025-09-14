@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useState, useMemo } from "react";
 import { PostCard } from "../../entities/post/ui/PostCard";
 import { Post } from "../../entities/post/model/types";
 import { FC, memo } from "react";
@@ -7,13 +7,13 @@ import { CommentList } from "../CommentList/ui/CommentList";
 import { PostLengthFilter } from "../../features/PostLengthFilter/ui/PostLengthFilter";
 import { filterByLength } from "../../features/PostLengthFilter/lib/filterByLength";
 import './PostList.css';
-
 interface PostListProps {
   posts: Post[];
   comments?: { [key: number]: any[] };
+  isLoading?: boolean;
 }
 
-const MemoizedPostItem = memo(({ post, comments }: { post: Post; comments: any[] }) => (
+const PostItem = memo(({ post, comments }: { post: Post; comments: any[] }) => (
   <div className="post-item">
     <PostCard post={post} />
     <CommentList 
@@ -31,10 +31,6 @@ export const PostList: FC<PostListProps> = (props) => {
     return filterByLength(posts, minLength);
   }, [posts, minLength]);
 
-  const handleLengthChange = useCallback((length: number) => {
-    setMinLength(length);
-  }, []);
-
   const postsInfo = useMemo(() => {
     return {
       shown: filteredPosts.length,
@@ -42,24 +38,24 @@ export const PostList: FC<PostListProps> = (props) => {
     };
   }, [filteredPosts.length, posts.length]);
 
-  const renderPost = useCallback((post: Post) => {
+  const renderPost = (post: Post) => {
     const postComments = comments[post.id] || [];
     return (
-      <MemoizedPostItem
+      <PostItem
         key={post.id}
         post={post}
         comments={postComments}
       />
     );
-  }, [comments]);
+  };
 
   const filterComponent = useMemo(() => (
     <PostLengthFilter 
       posts={posts}
       minLength={minLength}
-      onLengthChange={handleLengthChange}
+      onLengthChange={setMinLength}
     />
-  ), [posts, minLength, handleLengthChange]);
+  ), [posts, minLength]);
 
   return (
     <div className="post-list">
@@ -77,7 +73,7 @@ export const PostList: FC<PostListProps> = (props) => {
 
       {filteredPosts.length === 0 && (
         <div className="no-posts">
-          <p>😔 Не найдено постов с заголовком длиной от {minLength} символов</p>
+          <p>Не найдено постов с заголовком длиной от {minLength} символов</p>
           <button 
             onClick={() => setMinLength(0)}
             className="reset-filter-btn"
@@ -90,4 +86,5 @@ export const PostList: FC<PostListProps> = (props) => {
   );
 };
 
-export default memo(withLoading(PostList));
+const PostListWithMemo = memo(PostList);
+export default withLoading(PostListWithMemo);
