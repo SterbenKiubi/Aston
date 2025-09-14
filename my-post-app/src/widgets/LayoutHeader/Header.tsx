@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from '../../shared/ui/Button/Button';
-import { Modal } from '../../shared/ui/Modal/Modal';
-import { ModalHeader } from '../../shared/ui/Modal/Modal';
-import { ModalBody } from '../../shared/ui/Modal/Modal';
-import { ModalFooter } from '../../shared/ui/Modal/Modal';
+import { Modal, ModalHeader, ModalBody, ModalFooter } from '../../shared/ui/Modal';
 import { ThemeSwitcher } from '../../features/ThemeSwitcher/ui/ThemeSwitcher';
 import styles from './Header.module.css';
 
@@ -41,11 +38,7 @@ export const Header: React.FC = () => {
                             <li>CSS Modules для стилизации</li>
                         </ul>
                     </ModalBody>
-                    <ModalFooter>
-                        <button onClick={closeModal}>
-                            Закрыть
-                        </button>
-                    </ModalFooter>
+                    <ModalFooter></ModalFooter>
                 </Modal>
             </header>
         </>

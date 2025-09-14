@@ -1,33 +1,17 @@
-import React, { createContext, useContext } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+import { ModalContext } from './context/ModalContext';
 import styles from './Modal.module.css';
 
-const ModalContext = createContext();
-
 export const Modal = ({ isOpen, onClose, children }) => {
+  if (!isOpen) return null;
 
   return ReactDOM.createPortal(
-    <ModalContext.Provider value={ {onClose} }>
+    <ModalContext.Provider value={{ onClose }}>
       <dialog className={styles.modal} open={isOpen}>
         {children}
       </dialog>
     </ModalContext.Provider>,
-  document.body
-);
-};
-
-export const ModalHeader = ({ children }) => {
-  return (
-    <div className={styles.modalHeader}>
-      <h3 className={styles.modalTitle}>{children}</h3>
-    </div>
+    document.body
   );
-};
-
-export const ModalBody = ({ children }) => {
-  return <div className={styles.modalBody}>{children}</div>;
-};
-
-export const ModalFooter = ({ children }) => {
-  return <div className={styles.modalFooter}>{children}</div>;
 };

@@ -1,3 +1,11 @@
 .modal {
     border-radius: 20px;
 }
+.modalClose {
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
