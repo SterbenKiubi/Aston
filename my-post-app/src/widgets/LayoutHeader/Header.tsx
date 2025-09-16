@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../../shared/ui/Button/Button';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from '../../shared/ui/Modal';
 import { ThemeSwitcher } from '../../features/ThemeSwitcher/ui/ThemeSwitcher';
@@ -18,7 +19,9 @@ export const Header: React.FC = () => {
     return (
         <>
             <header className={styles.header}>
-                <h1>Приложение с постами</h1>
+                <Link to="/" className={styles.logoLink}>
+                    <h1 className={styles.title}>Приложение с постами</h1>
+                </Link>
                 <nav>
                     <Button showModal={openModal} />
                     <ThemeSwitcher />
