@@ -1,19 +1,19 @@
-import React from 'react';
-
 interface WithLoadingProps {
   isLoading?: boolean;
 }
 
-export function withLoading<P extends object>(
+export const withLoading = <P extends object>(
   WrappedComponent: React.ComponentType<P>
-): React.FC<P & WithLoadingProps> {
-  return function WithLoading({ isLoading, ...props }: P & WithLoadingProps) {
+): React.FC<P & WithLoadingProps> => {
+  const WithLoading: React.FC<P & WithLoadingProps> = ({ isLoading, ...props }) => {
     if (isLoading) {
-      return (
-        <div className="loading">Загрузка постов...</div>
-      );
+      return <div className="loading">Загрузка...</div>;
     }
     
     return <WrappedComponent {...props as P} />;
   };
-}
+
+  WithLoading.displayName = `WithLoading(${WrappedComponent.displayName || WrappedComponent.name})`;
+  
+  return WithLoading;
+};

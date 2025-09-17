@@ -1,6 +1,6 @@
 import React from 'react';
-import { usePosts } from '../entities/post/api/usePosts';
-import PostList from '../widgets/PostList/PostList';
+import { usePosts } from '../entities/post';
+import { PostWithLoading } from '../widgets/PostList/ui/PostWithLoading';
 import { mockComments } from '../shared/api/api';
 
 export const PostsPage: React.FC = () => {
@@ -12,7 +12,7 @@ export const PostsPage: React.FC = () => {
 
   return (
     <div>
-      <PostList 
+      <PostWithLoading 
         posts={posts} 
         comments={mockComments}
         isLoading={loading} 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { usePost } from '../entities/post/api/usePost';
+import { usePost } from '../entities/post';
 
 export const PostDetailsPage: React.FC = () => {
   const { id } = useParams();

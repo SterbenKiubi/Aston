@@ -1,11 +1,17 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
+import { Comment } from '../../../shared/api/api';
 
-export const CommentList = ({ postId, comments = [] }) => {
+interface CommentListProps {
+  postId: number;
+  comments?: Comment[];
+}
+
+export const CommentList: React.FC<CommentListProps> = ({ postId, comments = [] }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const toggleComments = useCallback(() => {
+  const toggleComments = () => {
     setIsExpanded(prev => !prev);
-  }, []);
+  };
 
   if (!comments || comments.length === 0) {
     return null;
@@ -13,12 +19,8 @@ export const CommentList = ({ postId, comments = [] }) => {
 
   return (
     <div>
-      <button 
-        onClick={toggleComments} 
-      >
-        <span>
-          {isExpanded ? '▼' : '►'}
-        </span>
+      <button onClick={toggleComments}>
+        <span>{isExpanded ? '▼' : '►'}</span>
         {isExpanded ? 'Свернуть' : 'Развернуть'} комментарии 
         <span>({comments.length})</span>
       </button>

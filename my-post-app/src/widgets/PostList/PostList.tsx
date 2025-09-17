@@ -1,7 +1,7 @@
-import React, { useState, useMemo } from "react";
-import { PostCard } from "../../entities/post/ui/PostCard";
-import { Post } from "../../entities/post/model/types";
-import { withLoading } from "../../shared/lib/hoc/withLoading";
+import React, { useMemo } from "react";
+import { PostCard } from "../../entities/post";
+import { Post } from "../../entities/post"; 
+import { Comment } from "../../shared/api/api";
 import { CommentList } from "../CommentList/ui/CommentList";
 import { PostLengthFilter } from "../../features/PostLengthFilter/ui/PostLengthFilter";
 import { filterByLength } from "../../features/PostLengthFilter/lib/filterByLength";
@@ -9,13 +9,11 @@ import './PostList.css';
 
 interface PostListProps {
   posts: Post[];
-  comments?: { [key: number]: any[] };
-  isLoading?: boolean;
+  comments?: { [key: number]: Comment[] };
 }
 
-export const PostList: React.FC<PostListProps> = (props) => {
-  const { posts, comments = {} } = props;
-  const [minLength, setMinLength] = useState(0);
+export const PostList: React.FC<PostListProps> = ({ posts, comments = {} }) => {
+  const [minLength, setMinLength] = React.useState(0);
 
   const filteredPosts = useMemo(() => {
     return filterByLength(posts, minLength);
@@ -64,5 +62,3 @@ export const PostList: React.FC<PostListProps> = (props) => {
     </div>
   );
 };
-
-export default withLoading(PostList);

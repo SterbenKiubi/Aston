@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../../shared/ui/Button/Button';
-import { Modal, ModalHeader, ModalBody, ModalFooter } from '../../shared/ui/Modal';
+import { Modal } from '../../shared/ui/Modal';
 import { ThemeSwitcher } from '../../features/ThemeSwitcher/ui/ThemeSwitcher';
 import styles from './Header.module.css';
 
 export const Header: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    function openModal() {
-        setIsModalOpen(true);
-    };
-
-    function closeModal() {
-        setIsModalOpen(false);
-    };
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
 
     return (
         <>
@@ -27,11 +22,10 @@ export const Header: React.FC = () => {
                     <ThemeSwitcher />
                 </nav>
                 <Modal isOpen={isModalOpen} onClose={closeModal}>
-                    <ModalHeader>
-                        О проекте
-                    </ModalHeader>
-                    <ModalBody>
-                        <h3>Мое приложение для просмотра постов</h3>
+                    <Modal.Header>
+                        <h3>О проекте</h3>
+                    </Modal.Header>
+                    <Modal.Body>
                         <p>На нем я учусь:</p>
                         <ul>
                             <li>React компонентам и пропсам</li>
@@ -40,8 +34,12 @@ export const Header: React.FC = () => {
                             <li>Модальным окнам через React Portal</li>
                             <li>CSS Modules для стилизации</li>
                         </ul>
-                    </ModalBody>
-                    <ModalFooter></ModalFooter>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <button className="modal-close" onClick={closeModal}>
+                            Закрыть
+                        </button>
+                    </Modal.Footer>
                 </Modal>
             </header>
         </>

@@ -1,8 +1,21 @@
 import React from 'react';
-import { getAvailableLengths } from '../lib/filterByLength';
+import { Post } from '../../../entities/post/model/types';
+import { getAvailableLengths } from '../lib/getAvailableLengths';
+import { filterByLength } from '../lib/filterByLength';
 
-export const PostLengthFilter = ({ posts, minLength, onLengthChange }) => {
+interface PostLengthFilterProps {
+  posts: Post[];
+  minLength: number;
+  onLengthChange: (length: number) => void;
+}
+
+export const PostLengthFilter: React.FC<PostLengthFilterProps> = ({ 
+  posts, 
+  minLength, 
+  onLengthChange 
+}) => {
   const availableLengths = getAvailableLengths(posts);
+  const filteredPostsCount = filterByLength(posts, minLength).length;
 
   return (
     <div>
@@ -21,7 +34,7 @@ export const PostLengthFilter = ({ posts, minLength, onLengthChange }) => {
       </label>
       
       <div>
-        Показано: {posts.filter(post => post.title.length >= minLength).length} из {posts.length} постов
+        Показано: {filteredPostsCount} из {posts.length} постов
       </div>
     </div>
   );

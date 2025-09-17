@@ -1,8 +1,6 @@
-export const filterByLength = (posts, minLength = 0) => {
-  return posts.filter(post => post.title.length >= minLength);
-};
+import { Post } from '../../../entities/post/model/types';
 
-export const getAvailableLengths = (posts) => {
+export const getAvailableLengths = (posts: Post[]): number[] => {
   const lengths = posts.map(post => post.title.length);
   const uniqueLengths = Array.from(new Set(lengths)).sort((a, b) => a - b);
   
