@@ -1,32 +1,29 @@
-import React, { useState, useEffect } from 'react'
-import { MainLayout } from '../shared/layouts/MainLayout';
-import { PostList } from '../widgets/PostList/PostList';
-import { Post } from '../entities/post/model/types';
-import { mockPosts } from '../shared/api/api';
+import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from '../shared/lib/theme/ThemeContext';
+import { RouterProvider } from './providers/router/RouterProvider';
+import { AppRouter } from './providers/router/AppRouter';
+import { mockPosts, mockComments } from '../shared/api/api';
 
 function App() {
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState([]);
+  const [comments, setComments] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
       setPosts(mockPosts);
+      setComments(mockComments);
       setLoading(false);
     }, 1000);
   }, []);
 
   return (
-    <ThemeProvider>
-      <MainLayout>
-        {loading ? (
-          <div className="loading">Загрузка постов...</div>
-        ) : (
-          <PostList posts={posts} />
-        )}
-      </MainLayout>
-    </ThemeProvider>
-  )
+    <RouterProvider>
+      <ThemeProvider>
+        <AppRouter />
+      </ThemeProvider>
+    </RouterProvider>
+  );
 }
 
 export default App;

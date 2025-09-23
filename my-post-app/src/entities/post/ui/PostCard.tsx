@@ -1,12 +1,12 @@
-import React from "react";
-import { Post } from "../model/types";
+import React from 'react';
+import { Post } from '../model/types';
 import styles from './PostCard.module.css';
 
 interface PostCardProps {
   post: Post;
 }
 
-export const PostCard: React.FC<PostCardProps> = ( { post } ) => {
+export const PostCard: React.FC<PostCardProps> = ({ post }) => {
     return (
         <div className={styles.card}>
             <h3 className="title">title: {post.title}</h3>
